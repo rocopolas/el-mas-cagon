@@ -28,5 +28,15 @@ p {
 canvas {
     background-color: #2e1d1d; /* Brown background */
     border-radius: 15px; /* Rounded corners */
+}
 
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    color: #cfdb5f25;
+    padding: 10px 0;
 }
