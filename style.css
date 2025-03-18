@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(to bottom, #3e2723, #472e25);
-    height: 100vh;
+    height: 120vh;
     margin-left: 25%;
     margin-right: 25%;
 }
@@ -28,10 +28,11 @@ p {
 canvas {
     background-color: #2e1d1d; /* Brown background */
     border-radius: 15px; /* Rounded corners */
+    margin-bottom: 20px;
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -39,4 +40,38 @@ footer {
     width: 100%;
     color: #cfdb5f25;
     padding: 10px 0;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'CustomFont', sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    color: #cfdb5f;
+    margin: 0 auto;
+}
+
+table th, table td {
+    border: 1px solid #cfdb5f50;
+    padding: 10px;
+}
+
+table th {
+    background-color: #472e25;
+    
+    color: #cfdb5f;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #3e2723;
+}
+
+table tr:hover {
+    background-color: #cfdb5f25;
+}
+table tr:nth-child(n+1) td:nth-child(2) {
+    font-family: sans-serif;
 }
