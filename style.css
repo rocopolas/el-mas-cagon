@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(to bottom, #3e2723, #472e25);
+    height: 100vh;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+@font-face {
+    font-family: 'CustomFont';
+    src: url('./bbb.ttf') format('truetype');
+}
+
+h1 {
+    /* color: #c7e6e6; /* Complementary color to the background */
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'CustomFont', sans-serif;
+    color:#cfdb5f
+}
+
+p {
+    margin-top: -20px;
+    color: #cfdb5fc0;
+    font-style: italic;
+    text-align: center;
+    font-family: 'CustomFont', sans-serif;
+}
+
+canvas {
+    background-color: #2e1d1d; /* Brown background */
+    border-radius: 15px; /* Rounded corners */
+
+}
