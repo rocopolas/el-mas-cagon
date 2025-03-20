@@ -109,6 +109,10 @@
                     { name: 'Truq', values: [0, 0, 0, 5] }
                 ];
 
+                const creationDate = new Date(2025, 2, 18); // Año, Mes (0-indexed), Día
+                const today = new Date();
+                const daysPassed = Math.ceil((today - creationDate) / (1000 * 60 * 60 * 24));
+
                 data.forEach(person => {
                     const nonZeroValues = person.values.filter(value => value > 0);
                     const average = nonZeroValues.length > 0
@@ -118,7 +122,7 @@
                     document.write(`
                         <tr>
                             <td>${person.name}</td>
-                            <td>${average/30}</td>
+                            <td>${(average / daysPassed).toFixed(2)}</td>
                         </tr>
                     `);
                 });
