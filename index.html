@@ -20,50 +20,50 @@
                 labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                 datasets: [
                     {
-                        label: 'Rocco',
-                        data: [0, 0, 4],
+                        label: 'Roko',
+                        data: [0, 0, 7, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(255, 99, 132, 1)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         fill: false
                     },
                     {
                         label: 'Ariel',
-                        data: [0, 0, 4],
+                        data: [0, 0, 7, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(54, 162, 235, 1)',
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         fill: false
                     },
                     {
                         label: 'Chouna',
-                        data: [0, 0, 2],
+                        data: [0, 0, 2, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(255, 206, 86, 1)',
                         backgroundColor: 'rgba(255, 206, 86, 0.2)',
                         fill: false
                     },
                     {
                         label: 'Ciro',
-                        data: [0, 0, 1],
+                        data: [0, 0, 5, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         fill: false
                     },
                     {
                         label: 'Dammi',
-                        data: [0, 0, 2],
+                        data: [0, 0, 6, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(153, 102, 255, 1)',
                         backgroundColor: 'rgba(153, 102, 255, 0.2)',
                         fill: false
                     },
                     {
                         label: 'St',
-                        data: [0, 0, 5],
+                        data: [0, 0, 10, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(255, 159, 64, 1)',
                         backgroundColor: 'rgba(255, 159, 64, 0.2)',
                         fill: false
                     },
                     {
                         label: 'Truq',
-                        data: [0, 0, 8],
+                        data: [0, 0, 15, null, null, null, null, null, null, null, null, null],
                         borderColor: 'rgba(153, 102, 255, 1)',
                         backgroundColor: 'rgba(153, 102, 255, 0.2)',
                         fill: false
@@ -100,23 +100,25 @@
         <tbody>
             <script>
                 const data = [
-                    { name: 'Rocco', values: [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'Ariel', values: [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'Chouna', values: [0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'Ciro', values: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'Dammi', values: [0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'St', values: [0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
-                    { name: 'Truq', values: [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+                    { name: 'Roko', values: [0, 0, 7, null, null, null, null, null, null, null, null, null] },
+                    { name: 'Ariel', values: [0, 0, 7, null, null, null, null, null, null, null, null, null] },
+                    { name: 'Chouna', values: [0, 0, 2, null, null, null, null, null, null, null, null, null] },
+                    { name: 'Ciro', values: [0, 0, 5, null, null, null, null, null, null, null, null, null] },
+                    { name: 'Dammi', values: [0, 0, 6, null, null, null, null, null, null, null, null, null] },
+                    { name: 'St', values: [0, 0, 10, null, null, null, null, null, null, null, null, null] },
+                    { name: 'Truq', values: [0, 0, 15, null, null, null, null, null, null, null, null, null] }
                 ];
 
+                // Fecha de inicio para el cálculo (se asume que se inició el seguimiento en marzo)
                 const creationDate = new Date(2025, 2, 18); // Año, Mes (0-indexado), Día
                 const today = new Date();
                 const daysPassed = Math.ceil((today - creationDate) / (1000 * 60 * 60 * 24));
 
                 data.forEach(person => {
-                    const nonZeroValues = person.values.filter(value => value > 0);
-                    const average = nonZeroValues.length > 0
-                        ? (nonZeroValues.reduce((sum, value) => sum + value, 0) / nonZeroValues.length).toFixed(2)
+                    // Se consideran los valores no nulos (solo enero, febrero y marzo)
+                    const nonNullValues = person.values.filter(value => value !== null && value > 0);
+                    const average = nonNullValues.length > 0
+                        ? (nonNullValues.reduce((sum, value) => sum + value, 0) / nonNullValues.length).toFixed(2)
                         : 0;
 
                     document.write(`
